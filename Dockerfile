@@ -6,7 +6,7 @@ COPY go.mod .
 
 RUN go build -o main .
 
-FROM golang:alpine 
+FROM scratch 
 
 COPY --from=BUILDER /app/main .
 
