@@ -4,9 +4,9 @@ WORKDIR /app
 COPY main.go .
 COPY go.mod .
 
-RUN go build -o main .
+RUN go build -ldflags "-s -w" -o main .
 
-FROM scratch 
+FROM golang:alpine 
 
 COPY --from=BUILDER /app/main .
 
