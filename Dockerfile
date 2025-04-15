@@ -6,7 +6,7 @@ COPY go.mod .
 
 RUN go build -ldflags "-s -w" -o main .
 
-FROM golang:alpine 
+FROM scratch 
 
 COPY --from=BUILDER /app/main .
 
